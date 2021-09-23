@@ -50,8 +50,10 @@ while text[0] != 'exit':
         print("Electron mass: m_e = 1 , also known as the atomic unit of mass")
         print("Source: https://en.wikipedia.org/wiki/Hartree_atomic_units")
         print("You can convert  Energy (J), Mass (kg), Action (J*s), Length (m), Electric charge (C)")
+        print("Enter the value in the SI system that you want to convert, e.g. 400 uJ or 15 nJ*s. If you want to learn more "
+        "about this units and why is this converter needed, print 'help', for exit print 'exit'")
         text = input().split()
-    elif type(text[0]) == str:
+    elif type(text[0])==str:
         break
     else:
         a = int(text[0])
