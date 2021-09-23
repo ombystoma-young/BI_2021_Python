@@ -31,7 +31,7 @@ def units_converter(val, unit):
         'ns': (2.419 * 10 ** (-8), '\u0127/Ha'),
     }
     x = un_dict[unit.lower()][0] * val
-    return float('{:.3e}'.format(x)), un_dict[unit.lower()][1]
+    return x, un_dict[unit.lower()][1]
 
 
 print("This script converts SI base units to Hartree atomic units.")
@@ -51,8 +51,8 @@ while text[0] != 'exit':
         print("Source: https://en.wikipedia.org/wiki/Hartree_atomic_units")
         print("You can convert  Energy (J), Mass (kg), Action (J*s), Length (m), Electric charge (C)")
         text = input().split()
-    elif type(text[0]) == str:
-        break
+  # elif type(text[0]) == str:
+  #     break
     else:
         a = int(text[0])
         b = str(text[1])
