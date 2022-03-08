@@ -10,7 +10,8 @@ class DNA:
         not_dna = r'[^atgcnATGCN]'
         if re.search(not_dna, self.sequence):
             raise ValueError("It is not DNA sequence. "
-                             "Check that the string contains only the nucleotides A, T, G, C, N.")
+                             "Check that the string contains only "
+                             "the nucleotides A, T, G, C, N.")
 
     def gc_content(self):
         if len(self.sequence) == 0:
@@ -33,13 +34,15 @@ class DNA:
         return reverse_complement_sequence
 
     def transcribe(self):
-        transcribe_complement = {'A': 'U', 'T': 'A', 'G': 'C', 'C': 'G', 'N': 'N',
-                                 'a': 'u', 't': 'a', 'g': 'c', 'c': 'g', 'n': 'n'}
+        transcribe_complement = {'A': 'U', 'T': 'A', 'G': 'C', 'C': 'G',
+                                 'N': 'N',
+                                 'a': 'u', 't': 'a', 'g': 'c', 'c': 'g',
+                                 'n': 'n'}
         complement_rna_sequence = []
         for nucleotide in self.sequence:
             complement_rna_sequence.append(transcribe_complement[nucleotide])
-        str_complement_rna_sequence = ''.join(map(str, complement_rna_sequence))
-        return RNA(str_complement_rna_sequence)
+        str_sequence = ''.join(map(str, complement_rna_sequence))
+        return RNA(str_sequence)
 
     def __iter__(self):
         return iter(self.sequence)
@@ -63,7 +66,8 @@ class RNA:
         not_dna = r'[^augcnAUGCN]'
         if re.search(not_dna, self.sequence):
             raise ValueError("It is not RNA sequence. "
-                             "Check that the string contains only the nucleotides A, U, G, C, N.")
+                             "Check that the string contains only"
+                             " the nucleotides A, U, G, C, N.")
 
     def gc_content(self):
         if len(self.sequence) == 0:
@@ -76,8 +80,10 @@ class RNA:
         return content
 
     def reverse_complement(self):
-        complement = {'A': 'U', 'U': 'A', 'G': 'C', 'C': 'G', 'N': 'N',
-                      'a': 'u', 'u': 'a', 'g': 'c', 'c': 'g', 'n': 'n'}
+        complement = {'A': 'U', 'U': 'A', 'G': 'C', 'C': 'G',
+                      'N': 'N',
+                      'a': 'u', 'u': 'a', 'g': 'c', 'c': 'g',
+                      'n': 'n'}
         complement_sequence = []
         for nucleotide in self.sequence:
             complement_sequence.append(complement[nucleotide])
@@ -94,4 +100,3 @@ class RNA:
 
     def __hash__(self):
         return hash(self.sequence)
-        
