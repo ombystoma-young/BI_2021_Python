@@ -94,7 +94,7 @@ class RNA:
         return iter(self.sequence)
 
     def __eq__(self, other):
-        if not isinstance(other, DNA):
+        if not isinstance(other, RNA):
             return NotImplemented
         return self.sequence.upper() == other.sequence.upper()
 
