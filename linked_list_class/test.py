@@ -15,9 +15,9 @@ class TestLinkedList(unittest.TestCase):
             self.assertEqual(self.items[i], check_list[i])
 
         with self.assertRaises(IndexError):
-            var = self.items[-2]
+            self.items[-2]
         with self.assertRaises(IndexError):
-            var = self.items[100]
+            self.items[100]
 
     def test_first_element(self):
         with self.assertRaises(IndexError):
@@ -136,4 +136,4 @@ class TestLinkedList(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    
+

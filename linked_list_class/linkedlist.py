@@ -144,4 +144,4 @@ class LinkedList:
         self.pop(last_element_index)
 
         return self
-        
+
